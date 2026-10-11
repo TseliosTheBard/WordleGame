@@ -1,6 +1,6 @@
 import json
 import random
-from ValidWord import valid_word
+from GettingGuess import word_guess
 
 
 #getting files from json & selecting word
@@ -12,16 +12,11 @@ selected_word = random.choice(data)
 
 
 
-valid = False
+valid:bool = False
+guess:str = word_guess(data,valid)
+print(selected_word[0])
 
-while True:
-    guess = input('Enter your guess: ')
-    if len(guess) != 5:
-        print('Not a 5 letter word')
-    elif valid_word(guess,data):
-        break
-    else:
-        print('That Word doesn''t exist')
+
 
 while guess != selected_word:
 
@@ -31,7 +26,7 @@ while guess != selected_word:
         break
     else :
         print('try again')
-        guess = input('Enter your guess:')
+        guess:str = word_guess(data,valid)
 
 
 
