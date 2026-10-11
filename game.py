@@ -1,7 +1,7 @@
 import json
 import random
 from getting_guess import word_guess
-from correct_chars import getting_chars,check_correct
+from checking_function import check_correct
 
 
 #getting files from json & selecting word
@@ -13,13 +13,14 @@ selected_word = random.choice(data)
 
 
 
+
 valid:bool = False
 guess:str = word_guess(data, valid)
-print(selected_word[0])
+print(selected_word)
 
 
 
-while guess != selected_word:
+while True:
 
     if guess == selected_word:
 
@@ -29,6 +30,7 @@ while guess != selected_word:
     else :
 
         print('try again')
+        check_correct(guess,selected_word)
         guess:str = word_guess(data, valid)
 
 
