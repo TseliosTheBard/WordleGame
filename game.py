@@ -8,10 +8,24 @@ with open('words.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 selected_word = random.choice(data)
 
+def valid_word(guess)-> bool:
+    if guess in data:
+        return True
+    else:
+        return False
 
 
-guess = input('Enter your guess: ')
 
+valid = False
+
+while True:
+    guess = input('Enter your guess: ')
+    if len(guess) != 5:
+        print('Not a 5 letter word')
+    elif valid_word(guess):
+        break
+    else:
+        print('That Word doesn''t exist')
 
 while guess != selected_word:
 
@@ -22,13 +36,9 @@ while guess != selected_word:
     else :
         print('try again')
         guess = input('Enter your guess: ')
-#idk
 
 
 
 
-def valid_word(guess)-> bool:
-    if guess in data:
-        return True
-    else:
-        return False
+
+
