@@ -35,7 +35,7 @@ while guess != selected_word:
         break
     else :
         print('try again')
-        guess = input('Enter your guess: ')
+        guess = input('Enter your guess:')
 
 
 
